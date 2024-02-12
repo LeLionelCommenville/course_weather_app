@@ -10,6 +10,7 @@ import SearchBox from './SearchBox';
 import axios from 'axios';
 import { loadingCityAtom, placeAtom } from '@/app/atom';
 import { useAtom } from 'jotai';
+import ThemeSwitch from './ThemeSwitch';
 
 type Props = { location?: string };
 
@@ -98,6 +99,7 @@ export default function Navbar({ location }: Props) {
             <MdSunnySnowing className='text-3xl mt-1 text-yellow-300' />
           </p>
           <section className='flex gap-2 items-center'>
+            <ThemeSwitch />
             <IoMdLocate
               title="Your current Location"
               className='text-2xl text-gray-400 hover:opacity-60 cursor-pointer'
@@ -149,7 +151,6 @@ function SuggestionBox({
     handleSuggestionClick: (item: string) => void;
     error: string;
   }) {
-  console.log('je suis passsé par la');
   return (
     <> {((showSuggestions && suggestions.length > 1) || error) && (
       <ul className="mb-4 bg-white absolute border top-[44px] 
